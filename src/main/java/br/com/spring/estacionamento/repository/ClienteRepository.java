@@ -13,13 +13,4 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     Cliente findFirstByPlacaAndStatus(String placa, Boolean status);
     List<Cliente> findBystatus(Boolean status);
     List<Cliente> findByhorasaida(LocalDateTime horasaida);
-    //List<Cliente> findBystatus(Boolean status);
-
-
-//    Cliente encontraPlaca(String placa);
-
-/*List<Cliente> findBymodelo(String modelo);
-    List<Cliente> findBystatus(Boolean status);
-    List<Cliente> findBydataentrada(LocalDateTime dataentrada);
-    List<Cliente> findBydatasaida(LocalDateTime datasaida);*/
 }

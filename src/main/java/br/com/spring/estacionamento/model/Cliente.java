@@ -34,6 +34,15 @@ public class Cliente{
     @Transient
     private Double precohora = 2.0;
 
+    @Transient
+    private int ano;
+
+    @Transient
+    private int mes;
+
+    @Transient
+    private int dia;
+
     public Cliente(){
 
     }
@@ -44,6 +53,7 @@ public class Cliente{
         this.horaentrada = LocalDateTime.now();
         //this.horasaida = horasaida;
         this.status = true;
+        this.saldo = 5.0;
         this.marca = marca;
     }
 
@@ -119,7 +129,15 @@ public class Cliente{
         this.marca = marca;
     }
 
-    public int getDiaEntrada(LocalDateTime horaentrada){
-        return horaentrada.getMonthValue();
+    public int getDiaSaida(LocalDateTime horasaida){
+        return horasaida.getDayOfMonth();
+    }
+
+    public int getMesSaida(LocalDateTime horasaida){
+        return horasaida.getMonthValue();
+    }
+
+    public int getAnoSaida(LocalDateTime horasaida){
+        return horasaida.getYear();
     }
 }

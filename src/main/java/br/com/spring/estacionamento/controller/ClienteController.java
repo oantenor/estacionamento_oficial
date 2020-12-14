@@ -66,25 +66,16 @@ public class ClienteController {
         cliente1.setStatus(false);
         LocalDateTime h1 = cliente1.getHoraentrada();
         LocalDateTime h2 = cliente1.getHorasaida();
-        Long diff = ChronoUnit.HOURS.between(h1, h2);
+        long diff = ChronoUnit.HOURS.between(h1, h2);
         if(diff < 1){
             cliente1.setSaldo(5.0);
         }
         else{
-            cliente1.setSaldo(5.0 + diff*2);
+            cliente1.setSaldo((5.0 + (diff - 1)*2));
         }
         Cliente cliente1Atualizado = clienteRepository.save(cliente1);
         return new ClienteDto(cliente1Atualizado);
     }
-
-
-    /*@PutMapping("/{placa}")
-    @Transactional
-    public ClienteDto atualizar_teste(@PathVariable("placa") String placa, Boolean status){
-        Cliente cliente1 = clienteRepository.findFirstByPlacaAndStatus(placa, status);
-        Cliente atualizado = clienteRepository.save(cliente1);
-        return new ClienteDto(atualizado);
-    }*/
 
 
 

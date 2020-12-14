@@ -19,6 +19,8 @@ public class ClienteForm {
     @NotNull @NotEmpty
     private LocalDateTime horaentrada;
 
+    private Double saldo;
+
     //private LocalDateTime horasaida;
 
     private Boolean status;
@@ -54,6 +56,10 @@ public class ClienteForm {
     /*public void setHorasaida(LocalDateTime horasaida) {
         this.horasaida = horasaida;
     }*/
+
+    public void setSaldo(Double saldo){
+        this.saldo = 5.0;
+    }
 
     public void setStatus(Boolean status){
         this.status = true;

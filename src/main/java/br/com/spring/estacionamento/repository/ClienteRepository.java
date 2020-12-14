@@ -11,6 +11,8 @@ import java.util.List;
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     List<Cliente> findByplaca(String placa);
     Cliente findFirstByPlacaAndStatus(String placa, Boolean status);
+    List<Cliente> findBystatus(Boolean status);
+    List<Cliente> findByhorasaida(LocalDateTime horasaida);
     //List<Cliente> findBystatus(Boolean status);
 
 

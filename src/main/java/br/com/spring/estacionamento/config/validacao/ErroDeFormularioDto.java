@@ -1,4 +1,4 @@
-/*package br.com.spring.estacionamento.config.validacao;
+package br.com.spring.estacionamento.config.validacao;
 
 public class ErroDeFormularioDto{
     private String campo;
@@ -16,4 +16,4 @@ public class ErroDeFormularioDto{
     public String getErro() {
         return erro;
     }
-}*/
+}

@@ -1,9 +1,13 @@
 package br.com.spring.estacionamento.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
 import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -13,8 +17,10 @@ public class Cliente{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull @NotBlank @NotEmpty @Size(min = 7)
     private String placa;
 
+    @NotNull @NotBlank @NotEmpty
     private String modelo;
 
     private LocalDateTime horasaida;
@@ -53,7 +59,7 @@ public class Cliente{
         this.horaentrada = LocalDateTime.now();
         //this.horasaida = horasaida;
         this.status = true;
-        this.saldo = 5.0;
+        this.saldo = 0.0;
         this.marca = marca;
     }
 

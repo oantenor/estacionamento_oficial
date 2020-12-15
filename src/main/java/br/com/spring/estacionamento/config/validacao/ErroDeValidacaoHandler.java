@@ -1,4 +1,4 @@
-/*package br.com.spring.estacionamento.config.validacao;
+package br.com.spring.estacionamento.config.validacao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -30,4 +30,4 @@ public class ErroDeValidacaoHandler {
         });
         return dto;
     }
-}*/
+}

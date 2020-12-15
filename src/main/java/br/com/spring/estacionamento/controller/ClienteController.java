@@ -45,7 +45,7 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<ClienteDto> cadastrar(@RequestBody ClienteForm form, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<ClienteDto> cadastrar(@RequestBody @Valid ClienteForm form, UriComponentsBuilder uriBuilder){
         Cliente cliente = form.converter(marcaRepository);
         clienteRepository.save(cliente);
         URI uri = uriBuilder.path("/clientes/{id}").buildAndExpand(cliente.getId()).toUri();
@@ -67,7 +67,7 @@ public class ClienteController {
         LocalDateTime h1 = cliente1.getHoraentrada();
         LocalDateTime h2 = cliente1.getHorasaida();
         long diff = ChronoUnit.HOURS.between(h1, h2);
-        if(diff < 1){
+        if(diff <= 1){
             cliente1.setSaldo(5.0);
         }
         else{
@@ -78,13 +78,6 @@ public class ClienteController {
     }
 
 
-
-    /*@PutMapping("/{id}")
-    @Transactional
-    public ResponseEntity<ClienteDto> atualizar(@PathVariable Long id, @RequestBody AtualizaClienteForm form){
-        Cliente cliente = form.atualizar(id, clienteRepository);
-        return ResponseEntity.ok(new ClienteDto(cliente));
-    }*/
 
 
 }

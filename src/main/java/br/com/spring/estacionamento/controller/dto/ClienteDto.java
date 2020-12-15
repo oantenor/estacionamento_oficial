@@ -3,7 +3,9 @@ package br.com.spring.estacionamento.controller.dto;
 import br.com.spring.estacionamento.model.Cliente;
 import br.com.spring.estacionamento.model.MarcaCarro;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
 
+import javax.validation.constraints.NotBlank;
 import java.beans.Transient;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.stream.Collectors;
 
 public class ClienteDto{
     private Long id;
+    @NotNull @NotBlank
     private String placa;
     private String modelo;
     private LocalDateTime horaentrada;

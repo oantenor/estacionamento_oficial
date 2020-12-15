@@ -80,9 +80,9 @@ public class RelatoriosController {
 
 
     @GetMapping("/periodo/datainicio/{datainicio}/datafim/{datafim}")
-    public double relatorio(@PathVariable("datainicio") String datainicio, @PathVariable("datafim") String datafim){
-        double total = clienteService.relatorio(datainicio, datafim);
-        return total;
+    public String relatorio(@PathVariable("datainicio") String datainicio, @PathVariable("datafim") String datafim){
+        String resposta = clienteService.relatorio(datainicio, datafim);
+        return resposta;
     }
 
 }

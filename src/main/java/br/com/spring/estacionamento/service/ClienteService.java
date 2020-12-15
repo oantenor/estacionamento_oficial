@@ -16,14 +16,15 @@ import java.util.List;
 public class ClienteService {
 
     private List<Cliente> verificados;
-    private double total;
+    private double total = 0;
 
     @Autowired
     ClienteRepository clienteRepository;
 
-    public double relatorio(String datainicio, String datafim){
+    public String relatorio(String datainicio, String datafim){
+        total = 0;
         verificados = new ArrayList<>();
-        double saldoun;
+        double saldoun = 0;
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         LocalDateTime datain = LocalDateTime.parse(datainicio, format);
         LocalDateTime dataf = LocalDateTime.parse(datafim, format);
@@ -36,6 +37,9 @@ public class ClienteService {
             saldoun = clientes.getSaldo();
             total += saldoun;
         }
-        return total;
+        String resposta = ("O valor do caixa total no período especificado é: " + total);
+        return resposta;
     }
+
+
 }

@@ -8,20 +8,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
 public class ClienteForm {
-    @NotNull @NotEmpty @NotBlank
+    @NotNull @NotEmpty @NotBlank @Size(min = 7)
     private String placa;
-    @NotNull @NotEmpty
+    @NotNull @NotEmpty @NotBlank
     private String modelo;
-    @NotNull @NotEmpty
+
     private LocalDateTime horaentrada;
 
     private Double saldo;
-
-    //private LocalDateTime horasaida;
 
     private Boolean status;
 
@@ -58,7 +57,7 @@ public class ClienteForm {
     }*/
 
     public void setSaldo(Double saldo){
-        this.saldo = 5.0;
+        this.saldo = 0.0;
     }
 
     public void setStatus(Boolean status){
